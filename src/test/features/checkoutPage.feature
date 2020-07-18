@@ -6,7 +6,7 @@ Feature: As a user I should be able to login and select items and add them to th
     And I click on the Sign In button
     When I add my email "kurianvijay7@gmail.com"
     And I click the Continue button
-    When I enter my password "Anewstart2019"
+    When I enter my password "***********"
     And I click the Sign In button
     And I search for an item "Baby Proofing & Corner Cushion Protector Set"
     Then I click the search button
