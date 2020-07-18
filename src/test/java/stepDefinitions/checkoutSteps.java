@@ -7,6 +7,8 @@ import functionLibrary.CommonFunctions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 public class checkoutSteps extends CommonFunctions {
 
     @Given("^that I am on the Amazon page \"([^\"]*)\"$")
@@ -51,7 +53,8 @@ public class checkoutSteps extends CommonFunctions {
 
     @When("^I add it into my checkout basket$")
     public void i_add_it_into_my_checkout_basket()  {
-        driver.findElement(By.xpath("//*[@id=\"849775f8-d9de-472a-9775-f8d9de672a0d\"]/div/div[2]/div[1]/a/div/div/div[1]/img")).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[2]/div[7]/div/span/div/div/div[2]/h2/a/span")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
     }
 
@@ -62,7 +65,7 @@ public class checkoutSteps extends CommonFunctions {
 
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
     public void i_should_be_able_to_see_it_in_my_checkout_basket(String expectedText)  {
-        String actualText = driver.findElement(By.xpath("//*[@id=\"sc-item-Cd067bcb5-cd60-441b-beaf-9107a1f81ab8\"]/div[4]/div/div[1]/div/div/div[2]/ul/li[1]/span/a/span[1]")).getText();
+        String actualText = driver.findElement(By.xpath("//*[@id=\"sc-item-Cfe76a032-8663-4236-9d12-43307e495086\"]/div[4]/div/div[1]/div/div/div[2]/ul/li[1]/span/a/span[1]")).getText();
 
         Assert.assertEquals(expectedText, actualText);
     }
