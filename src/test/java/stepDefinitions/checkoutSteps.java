@@ -7,13 +7,14 @@ import functionLibrary.CommonFunctions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class checkoutSteps extends CommonFunctions {
+public class checkoutSteps extends CommonFunctions  {
 
-    @Given("^that I am on the Amazon page \"([^\"]*)\"$")
-    public void that_I_am_on_the_Amazon_page(String url)  {
-        driver.get(url);
+    @Given("^that I am on the Amazon page$")
+    public void that_I_am_on_the_Amazon_page() throws IOException {
+        driver.get(readPropertyFile("url"));
     }
 
     @Given("^I click on the Sign In button$")
@@ -21,9 +22,9 @@ public class checkoutSteps extends CommonFunctions {
         driver.findElement(By.id("nav-link-accountList")).click();
     }
 
-    @When("^I add my email \"([^\"]*)\"$")
-    public void i_add_my_email(String email)  {
-        driver.findElement(By.name("email")).sendKeys(email);
+    @When("^I add my email$")
+    public void i_add_my_email() throws IOException  {
+        driver.findElement(By.name("email")).sendKeys(readPropertyFile("email"));
     }
 
     @When("^I click the Continue button$")
@@ -31,9 +32,9 @@ public class checkoutSteps extends CommonFunctions {
         driver.findElement(By.id("continue")).click();
     }
 
-    @When("^I enter my password \"([^\"]*)\"$")
-    public void i_enter_my_password(String password)  {
-        driver.findElement(By.id("ap_password")).sendKeys(password);
+    @When("^I enter my password$")
+    public void i_enter_my_password() throws IOException {
+        driver.findElement(By.id("ap_password")).sendKeys(readPropertyFile("password"));
     }
 
     @When("^I click the Sign In button$")
