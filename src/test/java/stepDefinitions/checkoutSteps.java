@@ -34,9 +34,11 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I enter my password$")
     public void i_enter_my_password() throws IOException {
+        String encPasswordValue  = readPropertyFile("password");
+        //for()
         driver.findElement(By.id("ap_password")).sendKeys(readPropertyFile("password"));
     }
-
+=
     @When("^I click the Sign In button$")
     public void i_click_the_Sign_In_button()  {
         driver.findElement(By.id("signInSubmit")).click();
