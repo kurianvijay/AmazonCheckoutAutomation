@@ -34,36 +34,37 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I enter my password$")
     public void i_enter_my_password() throws IOException {
-        String encPasswordValue  = readPropertyFile("password");
-        //for()
+//        String encPasswordValue  = readPropertyFile("password");
         driver.findElement(By.id("ap_password")).sendKeys(readPropertyFile("password"));
     }
-=
+
     @When("^I click the Sign In button$")
     public void i_click_the_Sign_In_button()  {
         driver.findElement(By.id("signInSubmit")).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @When("^I search for an item \"([^\"]*)\"$")
     public void i_search_for_an_item(String searchItem)  {
-        driver.findElement(By.name("field-keywords")).sendKeys(searchItem);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys(searchItem);
     }
 
     @Then("^I click the search button$")
     public void i_click_the_search_button()  {
-        driver.findElement(By.xpath("//*[@id=\"nav-search\"]/form/div[2]/div/input")).click();
+        driver.findElement(By.xpath("//*[@id=\"nav-search-submit-text\"]/input")).click();
     }
 
     @When("^I add it into my checkout basket$")
     public void i_add_it_into_my_checkout_basket()  {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[2]/div/span[3]/div[2]/div[7]/div/span/div/div/div[2]/h2/a/span")).click();
+        driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div/div[1]/div/span[3]/div[2]/div[4]/div/span/div/div/div/div/div[2]/h2/a/span")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
     }
 
     @When("^I go to my checkout basket$")
     public void i_go_to_my_checkout_basket()  {
-        driver.findElement(By.id("hlb-view-cart-announce")).click();
+        driver.findElement(By.id("hlb-ptc-btn-native")).click();
     }
 
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
