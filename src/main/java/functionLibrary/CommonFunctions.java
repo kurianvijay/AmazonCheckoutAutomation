@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class CommonFunctions {
 
-    public  static WebDriver driver;
+    public static WebDriver driver;
 
     public void openBrowser()
     {

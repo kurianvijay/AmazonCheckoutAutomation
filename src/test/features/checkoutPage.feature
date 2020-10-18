@@ -12,4 +12,4 @@ Feature: As a user I should be able to login and select items and add them to th
     Then I click the search button
     And I add it into my checkout basket
     And I go to my checkout basket
-    Then I should be able to see it in my checkout basket "Baby Proofing & Corner Cushion Protector Set I Baby Safety Bumpers & Edge Guard to Child Proof Furniture & Tables I Pre-Taped Corners I Bumper Safe Protector I [6.2m + 8 Corner Guards] Onyx Black"
+    Then I should be able to see it in my checkout basket "Baby Proofing & Corner Cushion Protector Set I Baby Safety Bumpers & Edge Guard to Child Proof Furniture & Tables I Pre-Taped Corners I Bumper Safe Protector I [6.2m + 8 Corner Guards] Coffee Brown"

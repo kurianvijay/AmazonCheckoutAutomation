@@ -58,7 +58,8 @@ public class checkoutSteps extends CommonFunctions  {
     @When("^I add it into my checkout basket$")
     public void i_add_it_into_my_checkout_basket()  {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div/div[1]/div/span[3]/div[2]/div[4]/div/span/div/div/div/div/div[2]/h2/a/span")).click();
+//        driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[2]")).click();
+        driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[4]")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
     }
 
@@ -69,9 +70,10 @@ public class checkoutSteps extends CommonFunctions  {
 
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
     public void i_should_be_able_to_see_it_in_my_checkout_basket(String expectedText)  {
-        String actualText = driver.findElement(By.xpath("//*[@id=\"sc-item-Cfe76a032-8663-4236-9d12-43307e495086\"]/div[4]/div/div[1]/div/div/div[2]/ul/li[1]/span/a/span[1]")).getText();
+        String actualText = driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[1]")).getText();
 
         Assert.assertEquals(expectedText, actualText);
+
     }
 
 }
