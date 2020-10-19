@@ -30,7 +30,8 @@ public class CommonFunctions {
 
         try {
             inputStream = new FileInputStream("/Users/vijaykurian/IdeaProjects/AmazonCheckoutAutomation/src/main/resources/config.properties");
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println(e);
         }
         Properties properties = new Properties();
