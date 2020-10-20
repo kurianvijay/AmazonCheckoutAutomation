@@ -1,14 +1,5 @@
 Feature: As a user I should be able to login and select items and add them to the checkout basket
 
-#  Background:
-#
-#    Given that I am on the Amazon page
-#    And I click on the Sign In button
-#    When I add my email
-#    And I click the Continue button
-#    When I enter my password
-#    And I click the Sign In button
-
   Scenario: Validate login details and add items to checkout basket
 
     Given that I am on the Amazon page

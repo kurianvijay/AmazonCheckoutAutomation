@@ -34,6 +34,7 @@ public class CommonFunctions {
         catch (Exception e) {
             System.out.println(e);
         }
+
         Properties properties = new Properties();
         properties.load(inputStream);
         String value = properties.getProperty(key);
