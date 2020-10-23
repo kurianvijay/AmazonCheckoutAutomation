@@ -13,3 +13,5 @@ Feature: As a user I should be able to login and select items and add them to th
     And I add it into my checkout basket
     And I go to my checkout basket
     Then I should be able to see it in my checkout basket "Baby Proofing & Corner Cushion Protector Set I Baby Safety Bumpers & Edge Guard to Child Proof Furniture & Tables I Pre-Taped Corners I Bumper Safe Protector I [6.2m + 8 Corner Guards] Coffee Brown"
+    And I should be able to clear the contents of my basket
+    Then I should be able to logout

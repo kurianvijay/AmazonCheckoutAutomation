@@ -6,11 +6,16 @@ import cucumber.api.java.en.When;
 import functionLibrary.CommonFunctions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class checkoutSteps extends CommonFunctions  {
+
+    private Actions action = new Actions(driver);
 
     @Given("^that I am on the Amazon page$")
     public void that_I_am_on_the_Amazon_page() throws IOException {
@@ -65,7 +70,7 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I go to my checkout basket$")
     public void i_go_to_my_checkout_basket()  {
-        driver.findElement(By.id("hlb-ptc-btn-native")).click();
+        driver.findElement(By.id("//span[@id='nav-cart-count']")).click();
     }
 
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
@@ -73,7 +78,24 @@ public class checkoutSteps extends CommonFunctions  {
         String actualText = driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[1]")).getText();
 
         Assert.assertEquals(expectedText, actualText);
+    }
+
+    @Then("^I should be able to clear the contents of my basket$")
+    public void i_should_be_able_to_clear_the_contents_of_my_basket()  {
+        Select basketQuantity = new Select(driver.findElement(By.xpath("//span[@id='a-autoid-0-announce']")));
+        basketQuantity.selectByVisibleText("Delete");
+    }
+
+    @Then("^I should be able to logout$")
+    public void i_should_be_able_to_logout()  {
+        WebElement hoverElement = driver.findElement(By.xpath("//span[contains(text(),'Hello, Vijay')]"));
+        action.moveToElement(hoverElement).build().perform();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//span[contains(text(),'Sign Out')]")).click();
+//        action.moveToElement((WebElement) By.id("nav-link-accountList")).build().perform();
+
 
     }
+
 
 }
