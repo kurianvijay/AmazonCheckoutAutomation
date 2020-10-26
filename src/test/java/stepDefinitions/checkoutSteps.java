@@ -63,7 +63,6 @@ public class checkoutSteps extends CommonFunctions  {
     @When("^I add it into my checkout basket$")
     public void i_add_it_into_my_checkout_basket()  {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//        driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[2]")).click();
         driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[4]")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
     }
