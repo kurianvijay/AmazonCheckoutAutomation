@@ -69,7 +69,8 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I go to my checkout basket$")
     public void i_go_to_my_checkout_basket()  {
-        driver.findElement(By.id("//span[@id='nav-cart-count']")).click();
+        //driver.findElement(By.id("//span[@id='nav-cart-count']")).click();
+        driver.findElement(By.xpath("//span[@id='nav-cart-count']")).click();
     }
 
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
