@@ -29,6 +29,7 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I add my email$")
     public void i_add_my_email() throws IOException  {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.name("email")).sendKeys(readPropertyFile("email"));
     }
 
@@ -39,7 +40,6 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I enter my password$")
     public void i_enter_my_password() throws IOException {
-
         driver.findElement(By.id("ap_password")).sendKeys(readPropertyFile("password"));
     }
 
@@ -69,7 +69,6 @@ public class checkoutSteps extends CommonFunctions  {
 
     @When("^I go to my checkout basket$")
     public void i_go_to_my_checkout_basket()  {
-        //driver.findElement(By.id("//span[@id='nav-cart-count']")).click();
         driver.findElement(By.xpath("//span[@id='nav-cart-count']")).click();
     }
 
@@ -81,11 +80,10 @@ public class checkoutSteps extends CommonFunctions  {
 
     @Then("^I should be able to clear the contents of my basket$")
     public void i_should_be_able_to_clear_the_contents_of_my_basket()  {
-//        WebElement quantity = driver.findElement(By.xpath("//span[@class='a-button-text a-declarative']"));
-        WebElement quantity = driver.findElement(By.xpath("//select[@name='quantity']"));
+        WebElement quantity = driver.findElement(By.xpath("//*[@id=\"a-autoid-0-announce\"]"));
         Select basketQuantity = new Select(driver.findElement(By.xpath("//select[@name='quantity']")));
         quantity.click();
-        basketQuantity.selectByVisibleText("Delete");
+        basketQuantity.selectByVisibleText("0 (Delete)");
     }
 
     @Then("^I should be able to logout$")
@@ -94,9 +92,6 @@ public class checkoutSteps extends CommonFunctions  {
         action.moveToElement(hoverElement).build().perform();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//span[contains(text(),'Sign Out')]")).click();
-//        action.moveToElement((WebElement) By.id("nav-link-accountList")).build().perform();
-
-
     }
 
 
