@@ -76,13 +76,15 @@ public class checkoutSteps extends CommonFunctions  {
     @Then("^I should be able to see it in my checkout basket \"([^\"]*)\"$")
     public void i_should_be_able_to_see_it_in_my_checkout_basket(String expectedText)  {
         String actualText = driver.findElement(By.xpath("(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[1]")).getText();
-
         Assert.assertEquals(expectedText, actualText);
     }
 
     @Then("^I should be able to clear the contents of my basket$")
     public void i_should_be_able_to_clear_the_contents_of_my_basket()  {
-        Select basketQuantity = new Select(driver.findElement(By.xpath("//span[@id='a-autoid-0-announce']")));
+//        WebElement quantity = driver.findElement(By.xpath("//span[@class='a-button-text a-declarative']"));
+        WebElement quantity = driver.findElement(By.xpath("//select[@name='quantity']"));
+        Select basketQuantity = new Select(driver.findElement(By.xpath("//select[@name='quantity']")));
+        quantity.click();
         basketQuantity.selectByVisibleText("Delete");
     }
 
