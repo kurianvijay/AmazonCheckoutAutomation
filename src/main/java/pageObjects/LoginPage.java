@@ -26,10 +26,12 @@ public class LoginPage extends CommonFunctions {
     @FindBy(id = "signInSubmit")
     public WebElement signInButton;
 
+    @FindBy(xpath = "//div[@class='a-box']")
+    public WebElement signInForm;
 
     public void enterEmail() throws IOException {
         explicitWait(emailBox, 10);
-        emailBox.sendKeys(readPropertyFile("expectedText", "email"));
+        emailBox.sendKeys(readPropertyFile("email"));
     }
 
     public void clickEmailPageContinueButton() {
@@ -38,10 +40,12 @@ public class LoginPage extends CommonFunctions {
 
     public void enterPassword() throws IOException {
         explicitWait(passwordBox, 10);
-        passwordBox.sendKeys(readPropertyFile("expectedText", "password"));
+        passwordBox.sendKeys(readPropertyFile("password"));
     }
 
     public void clickSignInButton( ){
         signInButton.click();
     }
+
+
 }

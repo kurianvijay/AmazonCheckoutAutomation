@@ -22,7 +22,7 @@ public class HomePage extends CommonFunctions {
 
     public void enterSearchTerm() throws IOException {
         explicitWait(searchBox, 10);
-        searchBox.sendKeys(readPropertyFile("expectedText", "searchItem"));
+        searchBox.sendKeys(readPropertyFile( "searchItem"));
     }
 
     public void clickSearchIcon(){

@@ -26,41 +26,21 @@ public class checkoutSteps extends CommonFunctions  {
 
     @Given("^that I am on the Amazon page$")
     public void that_I_am_on_the_Amazon_page() throws IOException {
-        driver.get(readPropertyFile("expectedText", "url"));
+        driver.get(readPropertyFile("url"));
     }
 
-    @Given("^I click on the Sign In button$")
-    public void i_click_on_the_Sign_In_button() {
+    @When("^I login with my username and password$")
+    public void i_login_with_my_username_and_password() throws IOException {
         header.clickOnSignInButton();
-    }
-
-    @When("^I add my email$")
-    public void i_add_my_email() throws IOException  {
         loginPage.enterEmail();
-    }
-
-    @When("^I click the Continue button$")
-    public void i_click_the_Continue_button() {
         loginPage.clickEmailPageContinueButton();
-    }
-
-    @When("^I enter my password$")
-    public void i_enter_my_password() throws IOException {
         loginPage.enterPassword();
-    }
-
-    @When("^I click the Sign In button$")
-    public void i_click_the_Sign_In_button()  {
         loginPage.clickSignInButton();
     }
 
     @When("^I search for an item$")
     public void i_search_for_an_item() throws IOException {
         homePage.enterSearchTerm();
-    }
-
-    @Then("^I click the search button$")
-    public void i_click_the_search_button()  {
         homePage.clickSearchIcon();
     }
 
@@ -78,9 +58,8 @@ public class checkoutSteps extends CommonFunctions  {
     @Then("^I should be able to see it in my checkout basket$")
     public void i_should_be_able_to_see_it_in_my_checkout_basket() throws IOException {
         String actualText = basketPage.getItemDescription();
-        Assert.assertEquals(readPropertyFile("expectedText", "expectedText"), actualText);
+        Assert.assertEquals(readPropertyFile( "expectedText"), actualText);
     }
-
 
     @Then("^I should be able to clear the contents of my basket$")
     public void i_should_be_able_to_clear_the_contents_of_my_basket()  {

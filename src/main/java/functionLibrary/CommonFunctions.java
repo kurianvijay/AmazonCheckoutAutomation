@@ -43,7 +43,7 @@ public class CommonFunctions {
         driver.quit();
     }
 
-    public String readPropertyFile(String expectedText, String key) throws IOException {
+    public String readPropertyFile(String key) throws IOException {
 
         FileInputStream inputStream = null;
 

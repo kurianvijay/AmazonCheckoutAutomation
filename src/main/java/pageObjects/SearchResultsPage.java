@@ -12,8 +12,6 @@ public class SearchResultsPage extends CommonFunctions {
         PageFactory.initElements(driver, this);
     }
 
-    private CommonFunctions commonObject1 = new CommonFunctions();
-
     @FindBy(xpath = "(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[4]")
     public WebElement searchResultProduct;
 
@@ -21,7 +19,7 @@ public class SearchResultsPage extends CommonFunctions {
     public WebElement addToBasket;
 
     public void clickSearchResultProduct(){
-        commonObject1.explicitWait(searchResultProduct, 10);
+        explicitWait(searchResultProduct, 10);
         searchResultProduct.click();
     }
 
