@@ -4,7 +4,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = ".", dryRun = false, strict = true)
+@CucumberOptions(features = ".", dryRun = false, strict = true,
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/tsr/report.html"})
 
 public class Runner {
 
