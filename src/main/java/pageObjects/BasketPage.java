@@ -2,6 +2,7 @@ package pageObjects;
 
 import functionLibrary.CommonFunctions;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,9 +20,6 @@ public class BasketPage extends CommonFunctions {
     @FindBy(xpath = "//span[@id='nav-cart-count']")
     public WebElement basket;
 
-    @FindBy(xpath = "(//span[contains(text(),'Baby Proofing & Corner Cushion Protector Set')])[1]")
-    public WebElement itemDescription;
-
     @FindBy(xpath = "//span[@id='a-autoid-0-announce']")
     public WebElement quantity;
 
@@ -33,9 +31,11 @@ public class BasketPage extends CommonFunctions {
         basket.click();
     }
 
-    public String getItemDescription(){
+    public String getItemDescription() throws IOException {
         explicitWait(basket, 10);
-        String actualText = itemDescription.getText();
+        String searchTerm= readPropertyFile("searchItem");
+        String actualText =
+                driver.findElement(By.xpath("(*//span[@class='a-list-item']/a/span[contains(text(),'"+searchTerm+"')])[1]")).getText();
         return actualText;
     }
 
@@ -49,12 +49,5 @@ public class BasketPage extends CommonFunctions {
         Select dropDown = new Select(quantityDropDown);
         dropDown.selectByVisibleText("0 (Delete)");
     }
-
-//    public void compareItemDescription() throws IOException {
-//        BasketPage basketPageObject = new BasketPage(driver);
-//        String text = basketPageObject.getItemDescription();
-//        Assert.assertEquals(String basketPageObject.readPropertyFile("expectedText", text ));
-//    "Baby Proofing & Corner Cushion Protector Set I Baby Safety Bumpers & Edge Guard to Child Proof Furniture & Tables I Pre-Taped Corners I Bumper Safe Protector I [6.2m + 8 Corner Guards] Coffee Brown"
-//    }
 
 }

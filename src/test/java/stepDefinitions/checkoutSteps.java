@@ -45,7 +45,7 @@ public class checkoutSteps extends CommonFunctions  {
     }
 
     @When("^I add it into my checkout basket$")
-    public void i_add_it_into_my_checkout_basket()  {
+    public void i_add_it_into_my_checkout_basket() throws IOException {
         searchResultsPage.clickSearchResultProduct();
         searchResultsPage.addProductToBasket();
     }
@@ -58,7 +58,8 @@ public class checkoutSteps extends CommonFunctions  {
     @Then("^I should be able to see it in my checkout basket$")
     public void i_should_be_able_to_see_it_in_my_checkout_basket() throws IOException {
         String actualText = basketPage.getItemDescription();
-        Assert.assertEquals(readPropertyFile( "expectedText"), actualText);
+        String partialExpectedText= readPropertyFile( "expectedText");
+        Assert.assertTrue(actualText.contains(partialExpectedText));
     }
 
     @Then("^I should be able to clear the contents of my basket$")
@@ -71,6 +72,8 @@ public class checkoutSteps extends CommonFunctions  {
     public void i_should_be_able_to_logout()  {
         header.hoverOverElement();
         header.clickOnSignoutButton();
+        Assert.assertTrue(loginPage.signInForm.isDisplayed());
+
     }
 
 }

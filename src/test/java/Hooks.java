@@ -3,6 +3,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import functionLibrary.CommonFunctions;
 import org.junit.AfterClass;
+import org.junit.Test;
 
 public class Hooks extends CommonFunctions {
 
@@ -12,6 +13,8 @@ public class Hooks extends CommonFunctions {
     public void beforeTest() {
         commonObject.openBrowser();
     }
+
+    @Test
 
     @After
     public void afterTest() {

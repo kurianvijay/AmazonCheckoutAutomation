@@ -15,6 +15,7 @@ public class Header extends CommonFunctions {
     }
 
     private Actions action = new Actions(driver);
+    private LoginPage loginPageObject = new LoginPage(driver);
 
     @FindBy(id="nav-link-accountList")
     public WebElement signInButton;
@@ -36,5 +37,6 @@ public class Header extends CommonFunctions {
 
     public void clickOnSignoutButton(){
         signOutButton.click();
+        explicitWait(loginPageObject.signInForm, 10);
     }
 }
