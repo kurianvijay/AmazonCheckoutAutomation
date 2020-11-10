@@ -9,4 +9,4 @@ Technology:
 |Test Validation - `JUnit`|
 |Reporting - `Extent Reports`|
 
-Description - Automation of the Amazon user journey when user the user is adding a single item to cart. 
+Description - Automation of the Amazon user journey when the user is adding a single item to cart. 
