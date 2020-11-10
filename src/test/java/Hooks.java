@@ -14,7 +14,11 @@ public class Hooks extends CommonFunctions {
         commonObject.openBrowser();
     }
 
-    @Test
+//    @Test
+//    public void takeScreenshotOnFailure() throws Exception {
+//
+//    }
+
 
     @After
     public void afterTest() {
@@ -24,6 +28,6 @@ public class Hooks extends CommonFunctions {
     @AfterClass
     public static void generateTestSummaryReport()
     {
-        Reporter.loadXMLConfig("https://stackoverflow.com/questions/6642146/maven-failed-to-read-artifact-descriptor");
+        Reporter.loadXMLConfig("/Users/vijaykurian/IdeaProjects/AmazonCheckoutAutomation/src/main/resources/config/extent-config.xml");
     }
 }
