@@ -21,7 +21,6 @@ public class SearchResultsPage extends CommonFunctions {
     public WebElement addToBasket;
 
     public void clickSearchResultProduct() throws IOException{
-
         String searchTerm= readPropertyFile("searchItem");
        WebElement searchResultProductName =
                 driver.findElement(By.xpath("(//*[@id=\"search\"]//*//div[2]/h2/a/span[contains(text(),'"+searchTerm+"')])[1]"));

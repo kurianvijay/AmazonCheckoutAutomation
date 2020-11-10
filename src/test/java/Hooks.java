@@ -4,25 +4,25 @@ import cucumber.api.java.Before;
 import functionLibrary.CommonFunctions;
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
+
+import java.io.IOException;
 
 public class Hooks extends CommonFunctions {
 
-    CommonFunctions commonObject = new CommonFunctions();
-
     @Before
     public void beforeTest() {
-        commonObject.openBrowser();
+        openBrowser();
     }
 
-//    @Test
-//    public void takeScreenshotOnFailure() throws Exception {
-//
-//    }
-
-
     @After
-    public void afterTest() {
-        commonObject.closeBrowser();
+    public void afterTest(ITestResult result)  {
+        if(result.FAILURE==result.getStatus())
+        {
+            screenShot(driver, result.getName());
+        }
+        closeBrowser();
     }
 
     @AfterClass

@@ -1,6 +1,9 @@
 package functionLibrary;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +12,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -21,21 +25,16 @@ public class CommonFunctions {
     public void openBrowser()
     {
         String browser = "chrome";
-        switch(browser){
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
-            default:
-                WebDriverManager.operadriver().setup();
-                driver = new OperaDriver();
-                break;
+        if ("chrome".equals(browser)) {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        } else if ("firefox".equals(browser)) {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        } else {
+            WebDriverManager.operadriver().setup();
+            driver = new OperaDriver();
         }
-
     }
 
     public void closeBrowser()
@@ -68,5 +67,16 @@ public class CommonFunctions {
         WebDriverWait wait = new WebDriverWait(driver, maxTime);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    public static void screenShot(WebDriver driver, String filename)  {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        try{
+            FileUtils.copyFile(source, new File("/Users/vijaykurian/IdeaProjects/AmazonCheckoutAutomation/reports/screenshot.png"));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 
 }
