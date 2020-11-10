@@ -16,8 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 public class checkoutSteps extends CommonFunctions  {
 
-    private Actions action = new Actions(driver);
-
     Header header = new Header(driver);
     LoginPage loginPage = new LoginPage(driver);
     HomePage homePage = new HomePage(driver);

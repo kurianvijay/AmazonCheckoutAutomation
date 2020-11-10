@@ -43,7 +43,7 @@ public class LoginPage extends CommonFunctions {
         passwordBox.sendKeys(readPropertyFile("password"));
     }
 
-    public void clickSignInButton( ){
+    public void clickSignInButton(){
         signInButton.click();
     }
 

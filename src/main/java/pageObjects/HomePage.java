@@ -27,5 +27,6 @@ public class HomePage extends CommonFunctions {
 
     public void clickSearchIcon(){
         searchIcon.click();
+        implicitWait(10);
     }
 }

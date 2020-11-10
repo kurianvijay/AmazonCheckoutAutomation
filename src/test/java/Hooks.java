@@ -17,14 +17,16 @@ public class Hooks extends CommonFunctions {
     }
 
     @After
-    public void afterTest(ITestResult result)  {
-        if(result.FAILURE==result.getStatus())
-        {
-            screenShot(driver, result.getName());
-        }
+    public void afterTest() {
         closeBrowser();
     }
-
+//    public void afterTest(ITestResult result)  {
+//        if(result.FAILURE==result.getStatus())
+//        {
+//            screenShot(driver, result.getName());
+//        }
+//        closeBrowser();
+//    }
     @AfterClass
     public static void generateTestSummaryReport()
     {

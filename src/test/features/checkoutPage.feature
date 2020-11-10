@@ -1,6 +1,6 @@
 Feature: As a user I should be able to login and select items and add them to the checkout basket
 
-  Scenario: Validate login details and add items to checkout basket
+  Scenario: Validate login details and add an item to checkout basket
 
     Given that I am on the Amazon page
     When I login with my username and password

@@ -68,15 +68,15 @@ public class CommonFunctions {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void screenShot(WebDriver driver, String filename)  {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        try{
-            FileUtils.copyFile(source, new File("/Users/vijaykurian/IdeaProjects/AmazonCheckoutAutomation/reports/screenshot.png"));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+//    public static void screenShot(WebDriver driver, String filename)  {
+//        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+//        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
+//        try{
+//            FileUtils.copyFile(source, new File("/Users/vijaykurian/IdeaProjects/AmazonCheckoutAutomation/reports/screenshot.png"));
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+//     }
 
 
 }
