@@ -24,7 +24,7 @@ public class checkoutSteps extends CommonFunctions  {
 
     @Given("^that I am on the Amazon page$")
     public void that_I_am_on_the_Amazon_page() throws IOException {
-        driver.get(readPropertyFile("url"));
+       loginPage.getURL();
     }
 
     @When("^I login with my username and password$")
@@ -46,10 +46,6 @@ public class checkoutSteps extends CommonFunctions  {
     public void i_add_it_into_my_checkout_basket() throws IOException {
         searchResultsPage.clickSearchResultProduct();
         searchResultsPage.addProductToBasket();
-    }
-
-    @When("^I go to my checkout basket$")
-    public void i_go_to_my_checkout_basket()  {
         basketPage.clickOnBasket();
     }
 
@@ -71,7 +67,6 @@ public class checkoutSteps extends CommonFunctions  {
         header.hoverOverElement();
         header.clickOnSignoutButton();
         Assert.assertTrue(loginPage.signInForm.isDisplayed());
-
     }
 
 }

@@ -2,10 +2,7 @@ package functionLibrary;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
@@ -25,6 +22,7 @@ public class CommonFunctions {
     public void openBrowser()
     {
         String browser = "chrome";
+        Dimension dimension = new Dimension(100, 100);
         if ("chrome".equals(browser)) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();

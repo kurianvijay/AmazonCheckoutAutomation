@@ -14,6 +14,8 @@ public class LoginPage extends CommonFunctions {
         PageFactory.initElements(driver, this);
     }
 
+    HomePage homePage = new HomePage(driver);
+
     @FindBy(name = "email")
     public WebElement emailBox;
 
@@ -28,6 +30,10 @@ public class LoginPage extends CommonFunctions {
 
     @FindBy(xpath = "//div[@class='a-box']")
     public WebElement signInForm;
+
+    public void getURL() throws IOException {
+        driver.get(readPropertyFile("url"));
+    }
 
     public void enterEmail() throws IOException {
         explicitWait(emailBox, 10);
@@ -45,6 +51,7 @@ public class LoginPage extends CommonFunctions {
 
     public void clickSignInButton(){
         signInButton.click();
+        explicitWait(homePage.searchBox,30);
     }
 
 
