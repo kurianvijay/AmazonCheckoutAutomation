@@ -1,6 +1,6 @@
 # AmazonCheckoutAutomation
 
-Tech:
+Technology Stack:
 
 |Language - `Java`|
 |Build Tool - `Maven`|
